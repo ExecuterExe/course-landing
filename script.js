@@ -286,66 +286,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Валидация и отправка формы
-    const applicationForm = document.getElementById('applicationForm');
-
-    if (applicationForm) {
-        applicationForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Получаем значения полей
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const course = document.getElementById('course').value;
-            const message = document.getElementById('message').value;
-
-            // Простая валидация
-            if (!name || !email || !phone || !course) {
-                alert('Пожалуйста, заполните все обязательные поля');
-                return;
-            }
-
-            // Валидация email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Пожалуйста, введите корректный email');
-                return;
-            }
-
-            // Валидация телефона (простая)
-            const phoneRegex = /^[\d\s\-\+\(\)]+$/;
-            if (!phoneRegex.test(phone)) {
-                alert('Пожалуйста, введите корректный номер телефона');
-                return;
-            }
-
-            // Здесь будет отправка данных на сервер
-            // Пока просто имитируем отправку
-            const formData = {
-                name,
-                email,
-                phone,
-                course,
-                message
-            };
-
-            console.log('Отправка данных:', formData);
-
-            // Имитация отправки
-            const submitBtn = applicationForm.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправка...';
-
-            setTimeout(() => {
-                alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-                applicationForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Отправить заявку';
-            }, 1500);
-        });
-    }
-
     // Анимация появления элементов при скролле
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.fade-in');
